@@ -14,3 +14,5 @@ const connectionSchema=new Schema({
         default:null,
     }
 })
+
+const connectionModel=mongoose.model("Connection",connectionSchema);
