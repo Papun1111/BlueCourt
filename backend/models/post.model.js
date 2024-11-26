@@ -35,4 +35,4 @@ default:""
 });
 
 const post=mongoose.model("Post",PostSchema);
-export post;
+export default post;

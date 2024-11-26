@@ -20,7 +20,7 @@ const userSchema=new Schema({
     password:{
         type:String,
         required:true
-    },profile:{
+    },profilePicture:{
         type:String,
         default:"default.png"
     },createdAt:{
