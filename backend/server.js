@@ -10,8 +10,9 @@ const app=express();
 const port=process.env.PORT||1111
 app.use(cors())
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use("/",postrouter);
-app.use(userRouter);
+app.use("/",userRouter);
 const start=async () => {
     const connectDb=await mongoose.connect(process.env.MONGO_URL);
 
