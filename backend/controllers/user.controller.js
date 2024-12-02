@@ -52,5 +52,19 @@ const login = async (req, res) => {
         return res.status(500).json({ message: "Internal server error." });
     }
 };
-
-export { register, login };
+const uploadProfilePicture=async (req,res) => {
+    const{token}=req.body;
+    try {
+        const users=await user.findOne({token:token})
+        if(!user){
+            return res.status(500).json({message:"User not found"})
+        }
+        user.profilePicture=req.file.filename;
+        await user.save();
+        return res.json({message:"Profile Picture Updated!"})
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}
+export { register, login ,uploadProfilePicture};
